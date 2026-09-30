@@ -1,0 +1,1230 @@
+/* ====================================================================
+ * 🌸 INDEX.CSS — Cute, Romantic & Personal Apology Webpage Design System
+ * ==================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@500;600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-gradient: linear-gradient(135deg, #fff5f7 0%, #ffeaf0 40%, #fef0f5 70%, #f3e8ff 100%);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(255, 182, 193, 0.4);
+  --letter-bg: #fffbf7;
+  
+  --primary-pink: #ff758f;
+  --primary-dark: #e64965;
+  --soft-pink: #ffccd5;
+  --baby-pink: #fff0f3;
+  --accent-rose: #ff4d6d;
+  --accent-lavender: #d8b4fe;
+  --accent-cream: #fffaf0;
+  
+  --text-main: #4a2e35;
+  --text-muted: #7d5a62;
+  --text-light: #9e7b83;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 15px rgba(255, 117, 143, 0.08);
+  --shadow-md: 0 10px 30px rgba(255, 117, 143, 0.12), 0 4px 10px rgba(74, 46, 53, 0.04);
+  --shadow-lg: 0 20px 45px rgba(255, 77, 109, 0.18), 0 8px 20px rgba(74, 46, 53, 0.06);
+  --shadow-glow: 0 0 25px rgba(255, 117, 143, 0.4);
+  
+  /* Fonts */
+  --font-heading: 'Fredoka', 'Quicksand', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  
+  /* Radius */
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+}
+
+/* Reset & Global - Fixed Viewport (No Window Scrollbars) */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  line-height: 1.6;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Background Canvas */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Layout Container */
+.container {
+  flex: 1;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  height: 100vh;
+}
+
+/* Section Wrapper */
+.section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Titles & Badges */
+.section-badge {
+  display: inline-block;
+  background: var(--baby-pink);
+  color: var(--primary-pink);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--card-border);
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.compact-title {
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+}
+
+/* Cards Base */
+.card-base {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.compact-card {
+  padding: 20px 20px;
+}
+
+/* Buttons */
+.btn-cute {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary-pink) 0%, var(--accent-rose) 100%);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.btn-cute::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-cute:hover::before {
+  left: 100%;
+}
+
+.btn-cute:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(255, 77, 109, 0.4);
+}
+
+.btn-cute:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Side-by-Side Hero Buttons Container */
+.hero-buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  margin-top: 10px;
+  z-index: 10;
+  min-height: 70px;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Fixed Main Listen Button */
+.btn-listen-fixed {
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+/* Playful Runaway No Button */
+.btn-no-runaway {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: white;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--soft-pink);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease, border-color 0.2s ease;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+}
+
+.btn-no-runaway:hover {
+  background: var(--baby-pink);
+  border-color: var(--primary-pink);
+  color: var(--primary-dark);
+}
+
+/* --------------------------------------------------------------------
+ * STEP-BY-STEP JOURNEY PROGRESS & SINGLE FRAME LAYOUT
+ * -------------------------------------------------------------------- */
+.journey-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  overflow: visible;
+}
+
+.progress-container {
+  margin: 0 auto 12px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.progress-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.progress-heart {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-heart.active {
+  transform: scale(1.25);
+  filter: drop-shadow(0 2px 6px rgba(255, 77, 109, 0.4));
+}
+
+.progress-line {
+  width: 14px;
+  height: 2px;
+  background: var(--soft-pink);
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.progress-line.completed {
+  background: var(--primary-pink);
+}
+
+.progress-step-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.journey-step-container {
+  flex: 1;
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.step-card {
+  width: 100%;
+  text-align: center;
+  overflow: visible;
+}
+
+.fade-step {
+  animation: pageFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.cards-reveal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.compact-remember-card {
+  padding: 14px 16px;
+}
+
+/* --------------------------------------------------------------------
+ * SECTION 1 — OPENING LANDING (GATEKEEPER)
+ * -------------------------------------------------------------------- */
+#section-opening {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: visible;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 650px;
+  width: 100%;
+  overflow: visible;
+}
+
+.shy-badge {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-pink);
+  background: var(--card-bg);
+  padding: 6px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--primary-pink);
+  box-shadow: var(--shadow-sm);
+  animation: floatSoft 3s ease-in-out infinite;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  white-space: pre-line;
+  max-width: 480px;
+}
+
+.scroll-heart-wrapper {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.animated-heart-down {
+  font-size: 1.6rem;
+  color: var(--primary-pink);
+  animation: heartBounce 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------
+ * SECTION 2 — THE ACTUAL APOLOGY
+ * -------------------------------------------------------------------- */
+.apology-card {
+  position: relative;
+  overflow: visible;
+}
+
+.sticker-badge {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  background: #fff066;
+  color: #333;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: rotate(6deg);
+  border: 2px dashed #e6c800;
+  animation: stickerWobble 4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.apology-paragraph {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.compact-para {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.apology-paragraph:last-child {
+  margin-bottom: 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--primary-dark);
+}
+
+/* --------------------------------------------------------------------
+ * STEP 4 — LOVE LETTER SCROLLABLE CARD ONLY
+ * -------------------------------------------------------------------- */
+.letter-card {
+  background: var(--letter-bg);
+  border: 1px solid rgba(230, 200, 190, 0.5);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px rgba(120, 80, 90, 0.08);
+  padding: 24px 28px;
+  position: relative;
+  text-align: left;
+}
+
+.letter-card-scrollable {
+  max-height: 52vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 18px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-pink) var(--baby-pink);
+}
+
+.letter-card-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-card-scrollable::-webkit-scrollbar-track {
+  background: var(--baby-pink);
+  border-radius: 10px;
+}
+
+.letter-card-scrollable::-webkit-scrollbar-thumb {
+  background: var(--primary-pink);
+  border-radius: 10px;
+}
+
+.letter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 27px,
+    rgba(255, 182, 193, 0.25) 27px,
+    rgba(255, 182, 193, 0.25) 28px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.letter-content {
+  position: relative;
+  z-index: 1;
+}
+
+.compact-letter-body {
+  font-family: var(--font-handwriting);
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: #3b232a;
+}
+
+.compact-letter-paragraph {
+  margin-bottom: 8px;
+}
+
+.compact-signoff {
+  margin-top: 14px;
+  font-size: 1.65rem;
+}
+
+.letter-stamp {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  font-size: 2rem;
+  opacity: 0.2;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------
+ * SECTION 6 — MY LITTLE PROMISE
+ * -------------------------------------------------------------------- */
+.promise-card {
+  text-align: center;
+}
+
+.compact-promise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto 16px auto;
+  list-style: none;
+}
+
+.compact-promise-item {
+  padding: 10px 16px;
+  font-size: 0.98rem;
+  border-radius: var(--radius-sm);
+  background: var(--baby-pink);
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.promise-icon {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------
+ * SECTION 7 — INTERACTIVE QUESTION
+ * -------------------------------------------------------------------- */
+.interactive-card {
+  text-align: center;
+}
+
+.quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.btn-option {
+  background: white;
+  border: 2px solid var(--soft-pink);
+  color: var(--text-main);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-option:hover {
+  background: var(--baby-pink);
+  border-color: var(--primary-pink);
+  transform: translateY(-2px) scale(1.03);
+  color: var(--primary-dark);
+}
+
+.quiz-result {
+  margin-top: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, #fff0f3 0%, #ffe5ec 100%);
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--primary-pink);
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --------------------------------------------------------------------
+ * SECTION 8 — FINAL APOLOGY
+ * -------------------------------------------------------------------- */
+.final-heading {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.final-large-text {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.compact-final-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 550px;
+  margin: 0 auto 16px auto;
+}
+
+.compact-final-line {
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+.compact-final-line.highlight {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary-pink);
+}
+
+.virtual-hug-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hug-heart-btn {
+  font-size: 3.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 16px rgba(255, 77, 109, 0.3));
+}
+
+.hug-heart-btn:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.hug-toast {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--primary-dark);
+  background: white;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--soft-pink);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.hug-toast.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------
+ * FOOTER
+ * -------------------------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px dashed var(--card-border);
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.footer-sub {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary-pink);
+}
+
+/* --------------------------------------------------------------------
+ * ANIMATIONS & KEYFRAMES
+ * -------------------------------------------------------------------- */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes heartBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(10px); }
+  60% { transform: translateY(5px); }
+}
+
+@keyframes stickerWobble {
+  0%, 100% { transform: rotate(6deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 8px 16px rgba(255, 77, 109, 0.3)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 12px 24px rgba(255, 77, 109, 0.5)); }
+}
+
+/* Responsive styles for smaller viewports */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .compact-title {
+    font-size: 1.4rem;
+  }
+  
+  .card-base {
+    padding: 18px 16px;
+  }
+  
+  .letter-card {
+    padding: 18px 20px;
+  }
+  
+  .compact-letter-body {
+    font-size: 1.25rem;
+  }
+  
+  .final-large-text {
+    font-size: 2.2rem;
+  }
+
+  .btn-no-runaway {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .progress-tracker {
+    gap: 2px;
+    padding: 4px 10px;
+  }
+
+  .progress-line {
+    width: 8px;
+  }
+}
+
+/* --------------------------------------------------------------------
+ * STEP 9 — TIME NEEDED & QUIET FINAL MESSAGE STYLES
+ * -------------------------------------------------------------------- */
+.time-options-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.time-option-card {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: var(--text-main);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.time-option-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--primary-pink);
+  background: var(--baby-pink);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.time-option-card:active {
+  transform: scale(0.98);
+}
+
+.time-option-2days {
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.banned-option-tag {
+  background: #fff0f3;
+  border: 1.5px dashed var(--primary-pink);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  text-align: center;
+  animation: popIn 0.4s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.confirm-2day-box {
+  background: var(--baby-pink);
+  border: 2px dashed var(--soft-pink);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.request-counter-badge {
+  display: inline-block;
+  background: white;
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--soft-pink);
+  box-shadow: var(--shadow-sm);
+}
+
+.confirm-buttons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.quiet-final-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.choice-response-box {
+  background: #fff0f3;
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  border: 1px solid var(--soft-pink);
+}
+
+.quiet-final-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  padding: 20px 18px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.quiet-line {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.final-goodnight-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-top: 16px;
+  line-height: 1.3;
+}
+
+.final-signoff {
+  font-family: var(--font-handwriting);
+  font-size: 1.7rem;
+  color: var(--primary-pink);
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* Single Frame Fit for Step 9 */
+.step9-compact-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 70px);
+  overflow: hidden;
+}
+
+.step9-main-card {
+  padding: 18px 22px;
+  max-width: 580px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.final-para-line {
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.virtual-hug-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 6px 0;
+  padding: 6px 12px;
+  background: var(--baby-pink);
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--soft-pink);
+  position: relative;
+}
+
+.hug-label-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.compact-hug-btn {
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.compact-hug-btn:hover {
+  transform: scale(1.25);
+}
+
+.final-goodnight-box {
+  margin-top: 4px;
+  text-align: center;
+  border-top: 1px dashed var(--card-border);
+  padding-top: 10px;
+}
+
+.goodnight-subtext {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------
+ * PRIVATE ADMIN PANEL STYLES (/admin)
+ * -------------------------------------------------------------------- */
+.admin-wrapper {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  z-index: 10;
+  position: relative;
+}
+
+.admin-card {
+  padding: 24px;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--text-main);
+}
+
+.admin-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.admin-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.admin-input {
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--card-border);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.admin-input:focus {
+  border-color: var(--primary-pink);
+}
+
+.admin-error {
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.metrics-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.metric-card {
+  flex: 1;
+  background: var(--baby-pink);
+  border: 1px solid var(--soft-pink);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.btn-small {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
+.table-responsive {
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.admin-table th {
+  background: var(--baby-pink);
+  padding: 10px 14px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--primary-dark);
+  position: sticky;
+  top: 0;
+}
+
+.admin-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 182, 193, 0.2);
+}
+
+.option-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.badge-tonight {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-1day {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-2days {
+  background: #ffe4e6;
+  color: var(--primary-dark);
+}
+
+.session-col {
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.back-link {
+  color: var(--primary-pink);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+
+
