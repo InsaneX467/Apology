@@ -43,26 +43,30 @@ export default function JourneyContainer({ content }) {
     "Hehe nope 💗"
   ];
 
-  // 10 Safe Escape Positions with BIG range for Step 7 Runaway No Button
+  // Dynamically calculated escape positions to ensure the button stays inside visible screen bounds on all devices
   const getEscapePositions = () => {
-    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1000;
+    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 360;
+    const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 640;
     const isMobile = screenWidth < 640;
-    const maxRight = Math.min(340, screenWidth / 2 - 120);
-    const scaleX = isMobile ? 0.45 : maxRight / 280;
-    const scaleY = isMobile ? 0.6 : 1.0;
+
+    const maxRight = Math.max(30, Math.min(380, (screenWidth / 2) - 80));
+    const maxLeft = -Math.max(30, Math.min(420, (screenWidth / 2) - 80));
+
+    const scaleX = isMobile ? Math.min(0.85, (screenWidth / 360) * 0.55) : maxRight / 320;
+    const scaleY = isMobile ? Math.min(0.85, (screenHeight / 640) * 0.7) : 1.0;
 
     return [
       { x: 0, y: 0 },
-      { x: -340 * scaleX, y: -130 * scaleY },
-      { x: -140 * scaleX, y: -160 * scaleY },
-      { x: 200 * scaleX,  y: -130 * scaleY },
-      { x: -360 * scaleX, y: 0 },
-      { x: 210 * scaleX,  y: 0 },
-      { x: -300 * scaleX, y: 130 * scaleY },
-      { x: -140 * scaleX, y: 160 * scaleY },
-      { x: 200 * scaleX,  y: 130 * scaleY },
-      { x: -260 * scaleX, y: -70 * scaleY },
-      { x: 190 * scaleX,  y: -70 * scaleY }
+      { x: Math.max(maxLeft, -340 * scaleX), y: -130 * scaleY },
+      { x: Math.max(maxLeft, -140 * scaleX), y: -150 * scaleY },
+      { x: Math.min(maxRight, 200 * scaleX), y: -130 * scaleY },
+      { x: Math.max(maxLeft, -360 * scaleX), y: 0 },
+      { x: Math.min(maxRight, 210 * scaleX), y: 0 },
+      { x: Math.max(maxLeft, -300 * scaleX), y: 130 * scaleY },
+      { x: Math.max(maxLeft, -140 * scaleX), y: 150 * scaleY },
+      { x: Math.min(maxRight, 200 * scaleX), y: 130 * scaleY },
+      { x: Math.max(maxLeft, -260 * scaleX), y: -70 * scaleY },
+      { x: Math.min(maxRight, 190 * scaleX), y: -70 * scaleY }
     ];
   };
 

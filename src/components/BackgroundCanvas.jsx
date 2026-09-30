@@ -19,8 +19,13 @@ export default function BackgroundCanvas() {
 
     window.addEventListener('resize', handleResize);
 
-    // Particle types: 'heart', 'sparkle', 'petal'
-    const particleCount = 35;
+    // Respect user reduced motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    // Particle count: lighter on mobile for 60fps performance
+    const isMobile = width < 640;
+    const particleCount = isMobile ? 18 : 35;
     const particles = [];
 
     class Particle {

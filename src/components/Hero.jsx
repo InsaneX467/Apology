@@ -15,28 +15,31 @@ export default function Hero({ content, onUnlock, isUnlocked }) {
     "Hehe nope 💗"
   ];
 
-  // BIG escape range across the screen while clamping safely to visible viewport bounds
+  // Dynamically calculated escape positions to ensure the button stays inside visible screen bounds on all devices
   const getEscapePositions = () => {
-    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1000;
+    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 360;
+    const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 640;
     const isMobile = screenWidth < 640;
     
-    // Scale X & Y offsets so the button escapes across a BIG range without clipping
-    const maxRight = Math.min(380, screenWidth / 2 - 120);
-    const scaleX = isMobile ? 0.45 : maxRight / 320;
-    const scaleY = isMobile ? 0.6 : 1.15;
+    // Bounds check to ensure button remains strictly within visible screen area
+    const maxRight = Math.max(30, Math.min(380, (screenWidth / 2) - 80));
+    const maxLeft = -Math.max(30, Math.min(420, (screenWidth / 2) - 80));
+    
+    const scaleX = isMobile ? Math.min(0.85, (screenWidth / 360) * 0.55) : maxRight / 320;
+    const scaleY = isMobile ? Math.min(0.85, (screenHeight / 640) * 0.7) : 1.15;
 
     return [
-      { x: 0, y: 0 },                             // 0: Initial side-by-side position
-      { x: -380 * scaleX, y: -150 * scaleY },     // 1: Far Upper-Left
-      { x: -160 * scaleX, y: -180 * scaleY },     // 2: Far Top-Center (high above main button)
-      { x: 220 * scaleX,  y: -150 * scaleY },     // 3: Far Upper-Right
-      { x: -420 * scaleX, y: 0 },                 // 4: Extreme Far-Left
-      { x: 240 * scaleX,  y: 0 },                 // 5: Extreme Far-Right
-      { x: -360 * scaleX, y: 150 * scaleY },      // 6: Far Bottom-Left
-      { x: -160 * scaleX, y: 180 * scaleY },      // 7: Far Bottom-Center (below main button)
-      { x: 220 * scaleX,  y: 150 * scaleY },      // 8: Far Bottom-Right
-      { x: -320 * scaleX, y: -80 * scaleY },      // 9: High Mid-Left
-      { x: 220 * scaleX,  y: -80 * scaleY }       // 10: High Mid-Right
+      { x: 0, y: 0 },
+      { x: Math.max(maxLeft, -340 * scaleX), y: -130 * scaleY },
+      { x: Math.max(maxLeft, -140 * scaleX), y: -150 * scaleY },
+      { x: Math.min(maxRight, 200 * scaleX), y: -130 * scaleY },
+      { x: Math.max(maxLeft, -360 * scaleX), y: 0 },
+      { x: Math.min(maxRight, 210 * scaleX), y: 0 },
+      { x: Math.max(maxLeft, -300 * scaleX), y: 130 * scaleY },
+      { x: Math.max(maxLeft, -140 * scaleX), y: 150 * scaleY },
+      { x: Math.min(maxRight, 200 * scaleX), y: 130 * scaleY },
+      { x: Math.max(maxLeft, -260 * scaleX), y: -75 * scaleY },
+      { x: Math.min(maxRight, 190 * scaleX), y: -75 * scaleY }
     ];
   };
 

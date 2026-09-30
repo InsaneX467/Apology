@@ -791,48 +791,203 @@ footer {
   50% { transform: scale(1.1); filter: drop-shadow(0 12px 24px rgba(255, 77, 109, 0.5)); }
 }
 
-/* Responsive styles for smaller viewports */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
+/* --------------------------------------------------------------------
+ * RESPONSIVE & MOBILE-FIRST OPTIMIZATIONS (320px to 1440px)
+ * -------------------------------------------------------------------- */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Touch Target Minimum (44px) */
+.btn-cute, 
+.btn-no-runaway, 
+.btn-option, 
+.time-option-card, 
+.hug-heart-btn {
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+/* Small & Medium Phones (320px - 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 8px 12px;
   }
-  
+
+  .hero-title {
+    font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.92rem, 3.8vw, 1.05rem);
+    padding: 0 4px;
+  }
+
   .section-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
   }
 
   .compact-title {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
   }
-  
+
   .card-base {
-    padding: 18px 16px;
+    padding: 16px 14px;
+    border-radius: 20px;
   }
-  
+
+  .compact-card {
+    padding: 14px 12px;
+  }
+
   .letter-card {
-    padding: 18px 20px;
+    padding: 14px 16px;
+    max-height: calc(100vh - 160px);
   }
-  
+
   .compact-letter-body {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
-  
+
   .final-large-text {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+  }
+
+  .btn-cute {
+    padding: 12px 22px;
+    font-size: 0.98rem;
+    min-height: 44px;
   }
 
   .btn-no-runaway {
-    padding: 10px 20px;
-    font-size: 0.95rem;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .hero-buttons-wrapper {
+    gap: 10px;
+    margin-top: 8px;
   }
 
   .progress-tracker {
     gap: 2px;
-    padding: 4px 10px;
+    padding: 3px 8px;
   }
 
   .progress-line {
-    width: 8px;
+    width: 5px;
+  }
+
+  .progress-heart {
+    font-size: 0.75rem;
+  }
+
+  .progress-step-text {
+    font-size: 0.75rem;
+  }
+
+  .desktop-only-table {
+    display: none !important;
+  }
+
+  .mobile-only-cards {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .admin-response-card {
+    background: var(--baby-pink);
+    border: 1px solid var(--soft-pink);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .card-session-id {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+}
+
+/* Tablets & Mid-size screens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .card-base {
+    padding: 22px 20px;
+  }
+
+  .desktop-only-table {
+    display: none !important;
+  }
+
+  .mobile-only-cards {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .admin-response-card {
+    background: var(--baby-pink);
+    border: 1px solid var(--soft-pink);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Desktop screens (769px+) */
+@media (min-width: 769px) {
+  .desktop-only-table {
+    display: block !important;
+  }
+
+  .mobile-only-cards {
+    display: none !important;
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

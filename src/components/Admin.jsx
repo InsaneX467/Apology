@@ -108,8 +108,8 @@ export default function Admin() {
               </button>
             </div>
 
-            {/* Responses Table */}
-            <div className="table-responsive">
+            {/* Desktop Responses Table */}
+            <div className="table-responsive desktop-only-table">
               <table className="admin-table">
                 <thead>
                   <tr>
@@ -142,6 +142,29 @@ export default function Admin() {
                   )}
                 </tbody>
               </table>
+            </div>
+
+            {/* Mobile Response Cards */}
+            <div className="admin-cards-list mobile-only-cards">
+              {data?.responses && data.responses.length > 0 ? (
+                data.responses.map((resp) => (
+                  <div key={resp._id} className="admin-response-card">
+                    <div className="card-top-row">
+                      <span className={`option-tag ${getOptionBadgeClass(resp.selectedOption)}`}>
+                        {resp.selectedOption}
+                      </span>
+                      <span className="card-time">{formatTime(resp.createdAt)}</span>
+                    </div>
+                    <div className="card-session-id">
+                      Session: {resp.sessionId ? resp.sessionId.substring(0, 16) + '...' : 'anon'}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '16px' }}>
+                  No responses recorded yet.
+                </div>
+              )}
             </div>
 
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
