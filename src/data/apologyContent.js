@@ -163,7 +163,57 @@ janu im an idiot 😭`,
     yesButtonText: "Umm ❤️",
     seeButtonText: "Sau 😤",
     noButtonText: "No 😤",
-    nextButtonText: "One Last Thing → 💗"
+    nextButtonText: "Pick a Gift → 🎁"
+  },
+
+  // ------------------------------------------------------------------
+  // STEP 8 — DIGITAL GIFT BOX SELECTION (MOBILE-FIRST CAROUSEL)
+  // ------------------------------------------------------------------
+  step8Gift: {
+    topBadge: "JUST FOR YOU 🎁",
+    title: "Pick a Little Something ❤️",
+    introLines: [
+      "I can't put a gift inside a webpage...",
+      "But I can let you choose one. 🥺"
+    ],
+    microcopyTop: "Take your pick, missy. 😌",
+    microcopySwipe: "← swipe to explore →",
+    microcopyBottom: "Choose wisely. 👀",
+    gifts: [
+      {
+        id: "flowers",
+        emoji: "🌷",
+        title: "Flowers",
+        text: "Something pretty for someone pretty.",
+        colorTheme: "rose"
+      },
+      {
+        id: "chocolate",
+        emoji: "🍫",
+        title: "Chocolate",
+        text: "Because chocolate makes almost everything better. ❤️",
+        colorTheme: "cocoa"
+      },
+      {
+        id: "teddy",
+        emoji: "🧸",
+        title: "A Teddy",
+        text: "For when you need a hug and I'm not there.",
+        colorTheme: "warm"
+      },
+      {
+        id: "letter",
+        emoji: "💌",
+        title: "A Love Letter",
+        text: "Because apparently one cheesy website wasn't enough.",
+        colorTheme: "romantic"
+      }
+    ],
+    chooseButtonText: "Choose this ❤️",
+    chosenButtonText: "Chosen ❤️",
+    confirmationText: "Okay... this one is yours. 🥺❤️",
+    goodChoiceText: "Good choice. ❤️ I'll remember that.",
+    continueButtonText: "Continue → 💗"
   },
 
   // ------------------------------------------------------------------

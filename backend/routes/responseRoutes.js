@@ -29,20 +29,19 @@ router.get('/session-count', async (req, res) => {
 // POST /api/response
 router.post('/response', async (req, res) => {
   try {
-    const { sessionId, selectedOption, twoDayRequests } = req.body;
+    const { sessionId, selectedOption, selectedGift, twoDayRequests } = req.body;
 
     // Validation
     if (!sessionId || typeof sessionId !== 'string') {
       return res.status(400).json({ success: false, message: 'Invalid or missing session ID' });
     }
 
-    const validOptions = ['Tonight', '1 Day', '2 Days'];
-    if (!selectedOption || !validOptions.includes(selectedOption)) {
+    if (!selectedOption || typeof selectedOption !== 'string') {
       return res.status(400).json({ success: false, message: 'Invalid option selected' });
     }
 
     // Check 2-day limit server side for this session
-    if (selectedOption === '2 Days') {
+    if (selectedOption === '2 Days' || selectedOption.includes('2 Days')) {
       const currentCount = await getTwoDayCountForSession(sessionId);
       if (currentCount >= 5) {
         return res.status(400).json({
@@ -54,7 +53,7 @@ router.post('/response', async (req, res) => {
 
     // Determine count for record
     let countForRecord = twoDayRequests || 0;
-    if (selectedOption === '2 Days') {
+    if (selectedOption === '2 Days' || selectedOption.includes('2 Days')) {
       const currentCount = await getTwoDayCountForSession(sessionId);
       countForRecord = currentCount + 1;
     }
@@ -62,6 +61,7 @@ router.post('/response', async (req, res) => {
     const newResponse = new Response({
       sessionId,
       selectedOption,
+      selectedGift: selectedGift || '',
       twoDayRequests: countForRecord
     });
 

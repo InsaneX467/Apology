@@ -44,6 +44,32 @@ export const sendResponseToBackend = async (selectedOption, twoDayRequestsCount 
 };
 
 /**
+ * Sends explicit gift selection to the backend.
+ */
+export const sendGiftSelectionToBackend = async (giftTitle) => {
+  const sessionId = getSessionId();
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/response`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        sessionId,
+        selectedOption: `Gift: ${giftTitle}`,
+        selectedGift: giftTitle,
+        twoDayRequests: 0
+      })
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.warn('Backend API gift submission warning:', error.message);
+    return { success: false, offline: true };
+  }
+};
+
+/**
  * Fetches admin response history (protected by admin secret).
  */
 export const fetchAdminResponses = async (secret) => {
