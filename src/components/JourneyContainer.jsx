@@ -12,7 +12,7 @@ export default function JourneyContainer({ content }) {
   const [confessionResponse, setConfessionResponse] = useState('');
 
   // Step 3 State (Revealing cards one by one)
-  const [visibleCardCount, setVisibleCardCount] = useState(0);
+  const [visibleCardCount, setVisibleCardCount] = useState(1);
 
   // Step 4 State (Opening Letter)
   const [isLetterOpen, setIsLetterOpen] = useState(false);
