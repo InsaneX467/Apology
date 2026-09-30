@@ -11,13 +11,13 @@ export const apologyContent = {
   // LANDING / GATEKEEPER OPENING (HERO)
   // ------------------------------------------------------------------
   hero: {
-    greeting: "Hey you... 👉👈",
+    greeting: "Hey Bitusmita... 👉👈",
     title: "I'm Sorry, My Love ❤️",
     subtitle: `Im sorry , My love 
 Moi janu messed up korisu
 and before kiba kou
 janu im an idiot 😭`,
-    buttonText: "Okay, Moi xunim..",
+    buttonText: "Umm...",
     noButtonOptions: [
       "No 😤",
       "Nope! 😭",
@@ -35,11 +35,11 @@ janu im an idiot 😭`,
     title: "Okay... Let Me Actually Say Sorry 🥺",
     stickerText: "Certified idiot moment 💀",
     paragraphs: [
-      "Before anything else, I just want to say something properly.",
+      "kiba kua agot aeita bostu moi valke koi lou hn.",
       "I'm sorry.",
-      "I know I can't undo what happened just by saying those two words, but I genuinely mean them.",
-      "I know my actions hurt you, and I'm sorry for putting you through that.",
-      "I don't want to make excuses or try to make myself look better.",
+      "Moi janu moi kora tu change hobo nuaru just 2ta word koi, but moi genuinly mean koru.",
+      "Janu mur kamr karone hurt hoiso toi ,and I'm sorry for putting you through that.",
+      "Moi aku excuses dia nai aru na nizk val dekhabo bisarisu .",
       "I was wrong.",
       "And yes... I'm still an idiot. 😭"
     ],
@@ -52,17 +52,16 @@ janu im an idiot 😭`,
   step2Confession: {
     title: "Okay... I Know I Messed Up 🥺",
     paragraphs: [
-      "I've thought about what happened, and the more I think about it, the more I realize that I should have handled things differently.",
-      "I should have thought about your feelings before I acted.",
-      "I should have understood how my actions could affect you.",
+      "Moi bostu tu bhut vabhilu aru jiman vabhisu gom paisu moi aru valke situation tu handle koribo parilu hoi.",
+      "Tur kotha aru vabhibo lagisile act kora agot.",
       "And I'm sorry that I didn't.",
-      "I don't want to give you excuses.",
+      "I don't want to give you excuses",
       "I just want to take responsibility and admit that I hurt someone I really care about."
     ],
-    question: "Was I stupid?",
+    question: "Moi paglami korisu?",
     options: [
-      { text: "Yes 😭", response: "Okay... fair enough. I deserved that one. 😭❤️" },
-      { text: "Extremely stupid 💀", response: "Okay... fair enough. I 100% deserved that one. 😭❤️" }
+      { text: "Oo 😭", response: "Okay... fair enough. I deserved that one.😭❤️" },
+      { text: "Pagol ", response: "Okay... fair enough. I 100% deserved that one.😭❤️" }
     ],
     buttonText: "Let's continue... 💗"
   },
@@ -76,26 +75,26 @@ janu im an idiot 😭`,
       {
         id: 1,
         emoji: "💗",
-        title: "I Should Have Listened",
-        text: "I should have listened to you instead of reacting the way I did."
+        title: "Moi xunibo lagisile",
+        text: "Moi tur lgot kotha patibo lagisile instead of tenke korat ke."
       },
       {
         id: 2,
         emoji: "🥺",
-        title: "I Should Have Thought",
-        text: "I should have stopped for a moment and thought about how my actions would make you feel."
+        title: "Moi aru olp vabhibo lagisile",
+        text: "Moi ek sec rokhi vabhibo lagisile mur actions keita tuk kiman hurt koribo pari."
       },
       {
         id: 3,
         emoji: "🫶",
-        title: "I Should Have Communicated",
-        text: "I should have talked to you properly instead of making things worse."
+        title: "Tur lgot communicate koribo lagisile",
+        text: "Tur lgot kotha patibo lagisile instead of making it worse ."
       },
       {
         id: 4,
         emoji: "❤️",
-        title: "I Should Have Been More Careful",
-        text: "Because when someone means this much to you, their feelings shouldn't be something you take lightly."
+        title: "Aru olp careful hbo lagisile",
+        text: "karon jetiya kunuba emaan mean kore , tahatr feelings eman lightly lobo nelage."
       }
     ],
     revealButtonTexts: ["Open this...", "There's more...", "Keep opening...", "One more..."],
@@ -109,13 +108,13 @@ janu im an idiot 😭`,
     title: "A Little Letter For You 💌",
     greeting: "Hi baby,",
     paragraphs: [
-      "I know this little website isn't going to magically fix everything.",
-      "I know I don't deserve an instant 'it's okay' just because I said sorry.",
-      "I know forgiveness is something you get to decide in your own time, and I respect that.",
-      "I just wanted to put my thoughts somewhere you could read them whenever you wanted because sometimes it's difficult to say everything properly out loud.",
-      "You mean so much to me.",
-      "Your smile, your annoying little habits, the random things you say, the way you make me laugh... all of it.",
-      "I just hope that eventually, through my actions and not only my words, I can show you that I really did learn from this.",
+      "Janu aei website tu aku magically bostu keita fix kori nidibo.",
+      "Aru janu toi muk instatly maaf koribo nelage just because moi sorry koisu buli.",
+      "I know maaf kora tu manhuhe nize morzi aru time loi kore,and I respect that.",
+      "Moi just mur monr kotha kobat likhibo bisarisu so toi jetiya bisaro porhibo paro , karon moi janu moi kobo kiba bisaru aru koi kiba diu.",
+      "But aeita bostu sure hoi toi mur karone bhut mean koro.",
+      "Tur hahi, tur nakhra keita , tur kotha keita , tur khong... sob.",
+      "I just hope that eventually, mur actions keita di not just kotha keita , moi tuk dekhabo paru ki moi hikisu xosa yar pora agor nisina.",
       "I love you.",
       "I'm sorry.",
       "And yes... I'm still hopelessly cheesy about you. ❤️"
@@ -132,11 +131,11 @@ janu im an idiot 😭`,
     title: "I Don't Want My Sorry To Be Just A Word",
     subtitle: "Anyone can say sorry. What matters is what happens after.",
     promises: [
-      "I'll think before I act.",
-      "I'll listen instead of immediately defending myself.",
-      "I'll communicate instead of letting misunderstandings grow.",
-      "I'll be more considerate of your feelings.",
-      "I'll learn from this instead of repeating it."
+      "Moi kando kora agot vabhim.",
+      "Tur kotha xnuim nizr kotha kua agot.",
+      "Communicate korim , misunderstandings nhoi jaake.",
+      "Tur feelings keita proti aru caring hom.",
+      "Aeitur pora hikim , aru repeat nhoi aeitu ketiya oo ."
     ],
     promiseButtonText: "I Promise ❤️",
     nextButtonText: "Continue → 💗"
@@ -148,10 +147,10 @@ janu im an idiot 😭`,
   step6Playful: {
     title: "Okay... Serious Stuff Done.",
     subtitle: "Now I have one very important question.",
-    question: "Do you know how much I love you?",
-    options: ["Yes ❤️", "Obviously 🙄", "Tell me 😌"],
+    question: "Do you have any idea know how much I love you?",
+    options: ["Janu❤️", "Oo 🙄", "Umm 😌"],
     responseHeader: "Wrong answer. 😜",
-    responseText: "Because there isn't actually a number big enough. 😌❤️",
+    responseText: "There isn't a number big enough to measure how much I love you. If love had a limit, I'd have broken it for you already. ♾️💗. 😌❤️",
     nextButtonText: "Continue → 💗"
   },
 
@@ -160,9 +159,9 @@ janu im an idiot 😭`,
   // ------------------------------------------------------------------
   step7Forgiveness: {
     title: "One last question...",
-    subtitle: "Will you forgive this idiot? 🥺",
-    yesButtonText: "Maybe ❤️",
-    seeButtonText: "We'll see 😤",
+    subtitle: "Aei goru tuk maaf koribi ne? 🥺",
+    yesButtonText: "Umm ❤️",
+    seeButtonText: "Sau 😤",
     noButtonText: "No 😤",
     nextButtonText: "One Last Thing → 💗"
   },
@@ -174,14 +173,14 @@ janu im an idiot 😭`,
     heading: "One Last Time...",
     largeText: "I'm Really Sorry, Baby. ❤️",
     lines: [
-      "I'm sorry for what I did.",
-      "I'm sorry for hurting you.",
-      "I'm sorry if I made you feel like you weren't important to me.",
-      "You are.",
+      "I'm sorry aeisob kora karone.",
+      "I'm sorry tuk hurt kora karone.",
+      "I'm sorry jodi tuk feel koralu buli toi important nhoi mur karone.",
+      "Toi hoi important.",
       "I know an apology can't instantly fix everything, and I'm not asking it to.",
       "I just want you to know that I understand that I was wrong, and I genuinely regret hurting you.",
       "I'll let my actions speak louder than this little website.",
-      "Because despite being a certified idiot sometimes... 😭",
+      "Karone moi goru soru ji holei oo aeita bostu janu... 😭",
       "I really, really love you.",
       "And if I could give you one thing right now...",
       "It would be a really long hug. 🫂❤️"
@@ -196,56 +195,56 @@ janu im an idiot 😭`,
   step9TimeNeed: {
     heading: "I Know You Might Need Some Time... 🥺",
     introLines: [
-      "I completely understand if you need some time after everything.",
-      "I don't expect you to suddenly be okay just because I said sorry.",
-      "So... I'll give you whatever time you need.",
+      "Moi bujisu tuk jodi olp time and space lage aeisob jhonjot pora olp.",
+      "Aru moi oo expect kora nai je ki sob just theek houk karon moi sorry koisu buli..",
+      "So... Tuk jiman time lage moi dibo ready.",
       "But before I disappear and let you have your space..."
     ],
-    question: "How much time do you need from this idiot? 😭❤️",
+    question: "Kiman time lagibo tuk aeitu goru pora? 😭❤️",
     options: {
-      tonight: "Tonight 🌙",
-      oneDay: "1 Day 🌷",
-      twoDays: "2 Days 🥺"
+      tonight: "Aaji raati 🌙",
+      oneDay: "1 din 🌷",
+      twoDays: "2 din 🥺"
     },
     responses: {
       tonight: {
-        title: "Okay... tonight. ❤️",
+        title: "Okay... Aaji raati. ❤️",
         lines: [
-          "I'll give you your space.",
+          "Tuk tur space dim.",
           "But just so you know...",
-          "I'll probably still be sitting here regretting my life choices. 😭"
+          "Still gotei raati tu xubo nuarim aaji nizr kando keita karone aru regret korim. 😭"
         ],
         highlight: "Take your time, baby. 🫶"
       },
       oneDay: {
-        title: "Okay... one day. ❤️",
+        title: "Okay... 1 din. ❤️",
         lines: [
           "I'll respect that.",
-          "I won't bother you.",
-          "Take the time you need.",
-          "I'll be here when you're ready."
+          "Tuk disturb nkoru.",
+          "Nizor time lobi valke.",
+          "Moi asu jetiya oo tuk lage your ready."
         ]
       },
       twoDaysAttempts: [
         {
-          title: "Two days...? 🥺 Please reconsider.",
+          title: "2 din...??? 🥺 Aru aeibar vabh na .",
           sub: "Are you sure?",
-          text: "Please don't disappear for THAT long... I promise I'll behave. 😭❤️"
+          text: "Emaan time nuarim ..... I promise I'll behave yarrr 😭❤️"
         },
         {
-          title: "Again?! 😭 I'm asking nicely...",
+          title: "AKou???! 😭 Yar valke xudhisu please...",
           sub: "Are you sure?",
-          text: "Please don't disappear for THAT long... I promise I'll behave. 😭❤️"
+          text: "Emaan time nuarim ..... I promise I'll behave yarrr 😭❤️"
         },
         {
-          title: "Okay, you're really serious about those two days huh? 🥲",
+          title: "Okay, toi mane pura serious 2 din napato buli ???? 🥲",
           sub: "Are you sure?",
-          text: "Please don't disappear for THAT long... I promise I'll behave. 😭❤️"
+          text: "Emaan time nuarim ..... I promise I'll behave yarrr valke thakim pakka 😭❤️"
         },
         {
-          title: "FOUR TIMES?! 😭❤️ Please don't do this to me.",
+          title: "FOUR TIMES?! 😭❤️ Please enekua nkoribi na .",
           sub: "Are you sure?",
-          text: "Please don't disappear for THAT long... I promise I'll behave. 😭❤️"
+          text: "Emaan time nuarim ..... I promise I'll behave yarrr , baby please.... 😭❤️"
         },
         {
           title: "Okay okay... I understand. 🥺",
