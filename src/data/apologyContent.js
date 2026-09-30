@@ -24,7 +24,7 @@ janu im an idiot 😭`,
       "Xun na ",
       "Yarr 💨",
       "Absolutely not 😭",
-      "Hehe nope 💗"
+      "Please na💗"
     ]
   },
 
