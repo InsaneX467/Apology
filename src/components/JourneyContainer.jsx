@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import confetti from 'canvas-confetti';
 import ProgressIndicator from './ProgressIndicator';
 import Footer from './Footer';
-import GiftSelection from './GiftSelection';
 import { sendResponseToBackend } from '../services/api';
 
 export default function JourneyContainer({ content }) {
@@ -29,7 +28,7 @@ export default function JourneyContainer({ content }) {
   const [noTextIndex, setNoTextIndex] = useState(0);
   const noBtnRef = useRef(null);
 
-  // Step 9 State (Time Needed)
+  // Step 8 State (Time Needed)
   const [twoDayRequests, setTwoDayRequests] = useState(0); // 0 to 5
   const [isConfirming2Days, setIsConfirming2Days] = useState(false);
   const [selectedTimeOption, setSelectedTimeOption] = useState(null); // 'tonight' | '1day'
@@ -72,7 +71,7 @@ export default function JourneyContainer({ content }) {
   };
 
   const handleNextStep = () => {
-    if (currentStep < 10) {
+    if (currentStep < 9) {
       setCurrentStep((prev) => prev + 1);
     }
   };
@@ -105,7 +104,7 @@ export default function JourneyContainer({ content }) {
     setNoTextIndex((prev) => (prev + 1) % noOptions.length);
   };
 
-  // Hug counter for Step 10
+  // Hug counter for Step 9
   const [hugCount, setHugCount] = useState(0);
   const [showHugToast, setShowHugToast] = useState(false);
 
@@ -116,7 +115,7 @@ export default function JourneyContainer({ content }) {
     setTimeout(() => setShowHugToast(false), 3000);
   };
 
-  // Step 9 Option Handlers
+  // Step 8 Option Handlers
   const handleSelectTonight = (e) => {
     setSelectedTimeOption('tonight');
     setFinalChoiceMade(true);
@@ -163,7 +162,7 @@ export default function JourneyContainer({ content }) {
   return (
     <div className="journey-wrapper">
       {/* Top Progress Indicator */}
-      <ProgressIndicator currentStep={currentStep} totalSteps={10} />
+      <ProgressIndicator currentStep={currentStep} totalSteps={9} />
 
       <div className="journey-step-container">
         {/* =============================================================
@@ -171,7 +170,7 @@ export default function JourneyContainer({ content }) {
              ============================================================= */}
         {currentStep === 1 && (
           <div className="step-card fade-step">
-            <div className="section-badge">Step 1 of 10</div>
+            <div className="section-badge">Step 1 of 9</div>
             <h2 className="section-title compact-title">{content.step1Apology.title}</h2>
 
             <div className="card-base apology-card compact-card">
@@ -198,7 +197,7 @@ export default function JourneyContainer({ content }) {
              ============================================================= */}
         {currentStep === 2 && (
           <div className="step-card fade-step">
-            <div className="section-badge">Step 2 of 10</div>
+            <div className="section-badge">Step 2 of 9</div>
             <h2 className="section-title compact-title">{content.step2Confession.title}</h2>
 
             <div className="card-base compact-card">
@@ -255,7 +254,7 @@ export default function JourneyContainer({ content }) {
              ============================================================= */}
         {currentStep === 3 && (
           <div className="step-card fade-step">
-            <div className="section-badge">Step 3 of 10</div>
+            <div className="section-badge">Step 3 of 9</div>
             <h2 className="section-title compact-title">{content.step3Cards.title}</h2>
 
             <div className="cards-reveal-grid">
@@ -297,7 +296,7 @@ export default function JourneyContainer({ content }) {
              ============================================================= */}
         {currentStep === 4 && (
           <div className="step-card fade-step">
-            <div className="section-badge">Step 4 of 10</div>
+            <div className="section-badge">Step 4 of 9</div>
             <h2 className="section-title compact-title">{content.step4LoveLetter.title}</h2>
 
             {!isLetterOpen ? (
@@ -354,7 +353,7 @@ export default function JourneyContainer({ content }) {
         {currentStep === 5 && (
           <div className="step-card fade-step">
             <div className="card-base promise-card compact-card">
-              <div className="section-badge">Step 5 of 10</div>
+              <div className="section-badge">Step 5 of 9</div>
               <h2 className="section-title compact-title">{content.step5Promise.title}</h2>
               <p className="promise-subtext" style={{ marginBottom: '16px', fontSize: '1rem' }}>
                 {content.step5Promise.subtitle}
@@ -399,7 +398,7 @@ export default function JourneyContainer({ content }) {
         {currentStep === 6 && (
           <div className="step-card fade-step">
             <div className="card-base interactive-card compact-card">
-              <div className="section-badge">Step 6 of 10</div>
+              <div className="section-badge">Step 6 of 9</div>
               <h2 className="section-title compact-title">{content.step6Playful.title}</h2>
               <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
                 {content.step6Playful.subtitle}
@@ -452,7 +451,7 @@ export default function JourneyContainer({ content }) {
         {currentStep === 7 && (
           <div className="step-card fade-step">
             <div className="card-base text-center compact-card" style={{ padding: '32px 20px' }}>
-              <div className="section-badge">Step 7 of 10</div>
+              <div className="section-badge">Step 7 of 9</div>
               <h2 className="section-title compact-title">{content.step7Forgiveness.title}</h2>
               <p style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '24px' }}>
                 {content.step7Forgiveness.subtitle}
@@ -497,20 +496,11 @@ export default function JourneyContainer({ content }) {
         )}
 
         {/* =============================================================
-             STEP 8 — DIGITAL GIFT BOX (MOBILE-FIRST CAROUSEL)
+             STEP 8 — TIME NEEDED
              ============================================================= */}
         {currentStep === 8 && (
           <div className="step-card fade-step">
-            <GiftSelection content={content.step8Gift} onContinue={handleNextStep} />
-          </div>
-        )}
-
-        {/* =============================================================
-             STEP 9 — TIME NEEDED
-             ============================================================= */}
-        {currentStep === 9 && (
-          <div className="step-card fade-step">
-            <div className="section-badge">Step 9 of 10</div>
+            <div className="section-badge">Step 8 of 9</div>
             <h2 className="section-title compact-title">{content.step9TimeNeed.heading}</h2>
 
             <div className="card-base compact-card" style={{ textAlign: 'center', width: '100%' }}>
@@ -622,11 +612,11 @@ export default function JourneyContainer({ content }) {
         )}
 
         {/* =============================================================
-             STEP 10 — FINAL APOLOGY (SINGLE FRAME FIT)
+             STEP 9 — FINAL APOLOGY (SINGLE FRAME FIT)
              ============================================================= */}
-        {currentStep === 10 && (
+        {currentStep === 9 && (
           <div className="step-card fade-step step9-compact-frame">
-            <div className="section-badge">Step 10 of 10</div>
+            <div className="section-badge">Step 9 of 9</div>
             <div className="final-heading">{content.step8Final.heading}</div>
             <h2 className="final-large-text compact-title" style={{ marginBottom: '8px' }}>
               {content.step8Final.largeText}
