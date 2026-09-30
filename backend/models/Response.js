@@ -9,11 +9,8 @@ const responseSchema = new mongoose.Schema(
     },
     selectedOption: {
       type: String,
-      required: true
-    },
-    selectedGift: {
-      type: String,
-      default: ''
+      required: true,
+      enum: ['Tonight', '1 Day', '2 Days']
     },
     twoDayRequests: {
       type: Number,
@@ -26,3 +23,4 @@ const responseSchema = new mongoose.Schema(
 );
 
 export default mongoose.model('Response', responseSchema);
+

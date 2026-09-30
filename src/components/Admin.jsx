@@ -52,6 +52,14 @@ export default function Admin() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (' + date.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ')';
   };
 
+  const formatChoiceWithEmoji = (option) => {
+    if (!option) return 'N/A';
+    if (option === 'Tonight') return 'Tonight 🌙';
+    if (option === '1 Day') return '1 Day 🌷';
+    if (option === '2 Days') return '2 Days 🥺';
+    return option;
+  };
+
   const getOptionBadgeClass = (option) => {
     if (option.includes('Tonight')) return 'badge-tonight';
     if (option.includes('1 Day')) return 'badge-1day';
@@ -59,12 +67,16 @@ export default function Admin() {
     return '';
   };
 
+  const tonightCount = data?.counts?.tonight ?? data?.metrics?.tonightCount ?? 0;
+  const oneDayCount = data?.counts?.oneDay ?? data?.metrics?.oneDayCount ?? 0;
+  const twoDaysCount = data?.counts?.twoDays ?? data?.metrics?.twoDaysCount ?? 0;
+
   return (
     <div className="admin-wrapper fade-step">
       <div className="admin-card card-base">
         <div className="admin-header">
           <h1 className="admin-title">🔒 Private Admin Panel</h1>
-          <p className="admin-subtitle">Response history & selection metrics</p>
+          <p className="admin-subtitle">Space choices response history & analytics</p>
         </div>
 
         {!isAuthenticated ? (
@@ -75,7 +87,7 @@ export default function Admin() {
                 id="secret-input"
                 type="password"
                 className="admin-input"
-                placeholder="e.g. apology-secret-123"
+                placeholder="Enter ADMIN_SECRET"
                 value={adminSecret}
                 onChange={(e) => setAdminSecret(e.target.value)}
               />
@@ -87,15 +99,23 @@ export default function Admin() {
           </form>
         ) : (
           <div className="admin-dashboard">
+            <div className="space-choices-header" style={{ marginBottom: '8px', fontWeight: 700, color: 'var(--primary-dark)', textAlign: 'center' }}>
+              SPACE CHOICES SUMMARY
+            </div>
+
             {/* Metrics Header */}
             <div className="metrics-row">
               <div className="metric-card">
-                <span className="metric-value">{data?.metrics?.totalResponses || 0}</span>
-                <span className="metric-label">Total Responses</span>
+                <span className="metric-value">{tonightCount}</span>
+                <span className="metric-label">Tonight 🌙</span>
               </div>
               <div className="metric-card">
-                <span className="metric-value">{data?.metrics?.twoDayRequestsTotal || 0}</span>
-                <span className="metric-label">2-Day Requests</span>
+                <span className="metric-value">{oneDayCount}</span>
+                <span className="metric-label">1 Day 🌷</span>
+              </div>
+              <div className="metric-card">
+                <span className="metric-value">{twoDaysCount}</span>
+                <span className="metric-label">2 Days 🥺</span>
               </div>
             </div>
 
@@ -113,7 +133,7 @@ export default function Admin() {
               <table className="admin-table">
                 <thead>
                   <tr>
-                    <th>Option Selected</th>
+                    <th>Choice</th>
                     <th>Time</th>
                     <th>Session ID</th>
                   </tr>
@@ -124,7 +144,7 @@ export default function Admin() {
                       <tr key={resp._id}>
                         <td>
                           <span className={`option-tag ${getOptionBadgeClass(resp.selectedOption)}`}>
-                            {resp.selectedOption}
+                            {formatChoiceWithEmoji(resp.selectedOption)}
                           </span>
                         </td>
                         <td>{formatTime(resp.createdAt)}</td>
@@ -136,7 +156,7 @@ export default function Admin() {
                   ) : (
                     <tr>
                       <td colSpan="3" style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-                        No responses recorded yet.
+                        No choices recorded yet.
                       </td>
                     </tr>
                   )}
@@ -151,7 +171,7 @@ export default function Admin() {
                   <div key={resp._id} className="admin-response-card">
                     <div className="card-top-row">
                       <span className={`option-tag ${getOptionBadgeClass(resp.selectedOption)}`}>
-                        {resp.selectedOption}
+                        {formatChoiceWithEmoji(resp.selectedOption)}
                       </span>
                       <span className="card-time">{formatTime(resp.createdAt)}</span>
                     </div>
@@ -162,7 +182,7 @@ export default function Admin() {
                 ))
               ) : (
                 <div style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '16px' }}>
-                  No responses recorded yet.
+                  No choices recorded yet.
                 </div>
               )}
             </div>
@@ -178,3 +198,4 @@ export default function Admin() {
     </div>
   );
 }
+
