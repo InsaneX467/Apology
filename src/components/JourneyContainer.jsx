@@ -193,7 +193,7 @@ export default function JourneyContainer({ content }) {
         )}
 
         {/* =============================================================
-             STEP 2 — A LITTLE CONFESSION
+             STEP 2 — A LITTLE CONFESSION (MOBILE COMPATIBLE)
              ============================================================= */}
         {currentStep === 2 && (
           <div className="step-card fade-step">
@@ -203,14 +203,14 @@ export default function JourneyContainer({ content }) {
             <div className="card-base compact-card">
               <div className="confession-paragraphs">
                 {content.step2Confession.paragraphs.map((para, idx) => (
-                  <p key={idx} style={{ fontSize: '1.05rem', marginBottom: '10px' }}>
+                  <p key={idx} style={{ fontSize: 'clamp(0.92rem, 3.6vw, 1.02rem)', marginBottom: '6px', lineHeight: '1.35' }}>
                     {para}
                   </p>
                 ))}
               </div>
 
-              <div className="interactive-box" style={{ marginTop: '14px' }}>
-                <p className="interactive-question" style={{ fontSize: '1.15rem', marginBottom: '10px' }}>
+              <div className="interactive-box" style={{ marginTop: '10px' }}>
+                <p className="interactive-question" style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '8px' }}>
                   {content.step2Confession.question}
                 </p>
                 <div className="quiz-options">
@@ -218,6 +218,7 @@ export default function JourneyContainer({ content }) {
                     <button
                       key={idx}
                       className="btn-option"
+                      style={{ padding: '10px 16px', minHeight: '44px' }}
                       onClick={() => {
                         setConfessionAnswered(true);
                         setConfessionResponse(opt.response);
@@ -229,8 +230,8 @@ export default function JourneyContainer({ content }) {
                 </div>
 
                 {confessionAnswered && (
-                  <div className="quiz-result active" style={{ marginTop: '12px', padding: '14px' }}>
-                    <div className="quiz-result-text" style={{ fontSize: '1.1rem' }}>
+                  <div className="quiz-result active" style={{ marginTop: '10px', padding: '10px 12px' }}>
+                    <div className="quiz-result-text" style={{ fontSize: '0.98rem' }}>
                       {confessionResponse}
                     </div>
                   </div>
@@ -239,7 +240,7 @@ export default function JourneyContainer({ content }) {
             </div>
 
             {confessionAnswered && (
-              <div className="step-actions">
+              <div className="step-actions" style={{ marginTop: '10px' }}>
                 <button className="btn-cute" onClick={handleNextStep}>
                   {content.step2Confession.buttonText}
                 </button>
